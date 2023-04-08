@@ -14,6 +14,35 @@
         
         </form>
     </div>
+ <div class="col-sm-8">
+    <h4 class="text-center alert alert-info">All student Data</h4>
+    {% if stu %}
+   
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for x in stu %}
+              <tr>
+                <th scope="row">{{x.id}}</th>
+                <td>{{x.name}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.password}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    {% else %} 
+     <h4 class="text-center alert alert-warning">No records found</h4>
+ </div>
+    {% endif %}
 </div>
 
 
