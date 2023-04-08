@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.add_show,name="addandshow"),
     path('delete/<int:id>/',views.delete_data,name="deletedata"),  #id will be passed in view function delete data
-    
+    path('update/<int:id>/',views.update_data,name="updatedata"),
 ]

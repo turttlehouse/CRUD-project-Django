@@ -29,4 +29,16 @@ def delete_data(request,id):
         pi =User.objects.get(pk=id)   #pk is primary key id will be passed through dynami url (request,id)
         pi.delete()
         return HttpResponseRedirect('/')
+    
+#This function wil update
+def update_data(request,id):
+    if request.method == 'POST':
+        pi = User.objects.get(pk=id)
+        fm = StudentRegistration(request.POST,instance=pi)
+        if fm.is_valid():
+            fm.save()
+    else:
+        pi = User.objects.get(pk=id)
+        fm = StudentRegistration(instance=pi)
+    return render(request,'enroll/updatestudent.html',{'form':fm})    
         

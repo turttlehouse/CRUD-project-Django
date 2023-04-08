@@ -36,7 +36,7 @@
                 <td>{{x.email}}</td>
                 <td>{{x.password}}</td>
                 <td>
-                    <a href="#" class="btn btn-warning btn-sm">Update</a>
+                    <a href="{% url 'updatedata' x.id %}" class="btn btn-warning btn-sm">Update</a>
                     <form action="{% url 'deletedata' x.id %}" method="POST" class="d-inline">
                         {% csrf_token %}
                         <input type="submit" class="btn btn-danger" value="Delete">
