@@ -1,2 +1,1 @@
 # CRUD-project-DJANGO
-hello
