@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from .forms import StudentRegistration
 from .models import User
 
 # Create your views here.
+
+
+#This function will add new item and show all items
 def add_show(request):
     if request.method == 'POST':
         fm = StudentRegistration(request.POST)
@@ -17,5 +20,13 @@ def add_show(request):
             
     else:
         fm = StudentRegistration()
-        stud = User.objects.all()    
+    stud = User.objects.all()    
     return render(request, 'enroll/addandshow.html',{'form':fm,'stu':stud})
+
+#This function will delete table data
+def delete_data(request,id):        
+    if request.method == 'POST':
+        pi =User.objects.get(pk=id)   #pk is primary key id will be passed through dynami url (request,id)
+        pi.delete()
+        return HttpResponseRedirect('/')
+        
