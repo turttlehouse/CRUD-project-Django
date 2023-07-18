@@ -1,1 +1,1 @@
-# CRUD-project-DJANGO
+# Student Information System-project-DJANGO
